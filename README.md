@@ -4,6 +4,11 @@
 
 Node module for document-definitions
 
+## API
+
+*id* the id for requested document definition
+*language* the language for the document definition, defaults to `no_nb`
+
 ## Usage
 
 ```
