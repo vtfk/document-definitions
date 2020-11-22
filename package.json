@@ -32,5 +32,10 @@
   "devDependencies": {
     "ava": "3.13.0",
     "standard": "16.0.3"
-  }
+  },
+  "files": [
+    "shared/",
+    "definitions/",
+    "index.js"
+  ]
 }
