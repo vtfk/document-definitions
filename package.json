@@ -1,0 +1,36 @@
+{
+  "name": "@vtfk/document-definitions",
+  "version": "1.0.0",
+  "description": "Node module for document-definitions",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "standard && ava",
+    "standard:fix": "standard --fix",
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtfk/document-definitions.git"
+  },
+  "keywords": [
+    "vtfk",
+    "documents",
+    "pdfMake"
+  ],
+  "author": "Geir Gåsodden <geir.gasodden@pythonia.no> (https://github.com/zrrrzzt)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vtfk/document-definitions/issues"
+  },
+  "homepage": "https://github.com/vtfk/document-definitions#readme",
+  "engines": {
+    "node": ">=12.19.1"
+  },
+  "devDependencies": {
+    "ava": "3.13.0",
+    "standard": "16.0.3"
+  }
+}
