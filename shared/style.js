@@ -3,13 +3,13 @@ const style = {
     fontFamily: 'Nunito',
     fontSize: 16,
     bold: true,
-    margin: [0, 30, 0, 10]
+    margin: [0, 30, 0, 8]
   },
   subheading: {
     fontFamily: 'Nunito',
-    fontSize: 16,
+    fontSize: 13,
     bold: true,
-    margin: [0, 15, 0, 10]
+    margin: [0, 8, 0, 5]
   },
   body: {
     fontFamily: 'Nunito Sans',
