@@ -1,64 +1,55 @@
-module.exports = data => {
-  const style = require('../shared/style')
-  const header = require('../shared/header')
+const formatDate = require('../lib/format-date')
+const style = require('../shared/style')
+const header = require('../shared/header')
+
+module.exports = ({ metadata, content }) => {
+  const address = metadata.address || {}
+  const document = metadata.document || {}
+  const info = metadata.info || {}
+  const footer = metadata.footer || {}
+
+  const infoFields = []
+  const appendInfo = (field, title, parseField) => {
+    if (field) {
+      infoFields.push({
+        title,
+        field: (parseField && typeof (parseField) === 'function' ? parseField(field) : field)
+      })
+    }
+  }
+
+  appendInfo(info['our-date'] || new Date(), 'Vår dato', formatDate)
+  appendInfo(info['your-date'], 'Dykkar dato', formatDate)
+  appendInfo(info['our-reference'], 'Vår referanse')
+  appendInfo(info['your-reference'], 'Dykkar referanse')
+  appendInfo(info['our-caseworker'], 'Vår saksbehandlar')
+  appendInfo(info.paragraph, 'Unnateke offentlegheit')
 
   const defintion = {
     pageSize: 'A4',
     pageOrientation: 'portrait',
     pageMargins: [65, 120, 65, 0],
     info: {
-      title: data.metadata.document.title,
-      author: data.metadata.document.author,
-      subject: data.metadata.document.subject,
-      keywords: data.metadata.document.keywords
+      title: document.title,
+      author: document.author,
+      subject: document.subject,
+      keywords: document.keywords
     },
     header,
     content: [
       {
         table: {
-          widths: ['*', 'auto'],
+          widths: ['50%', '*', '*'],
           body: [
             [
-              [
-                { text: `${data.mottaker.fullName}`, style: 'mottaker' },
-                { text: `${data.mottaker.adresse}`, style: 'mottaker' },
-                { text: `${data.mottaker.poststed}`, style: 'mottaker' }
-              ],
-              [
-                { text: ' ', style: 'referanser' },
-                { text: ' ', style: 'referanser' },
-                { text: 'Opplæring og folkehelse', style: 'referanser', bold: true },
-                {
-                  table: {
-                    widths: ['auto', 'auto'],
-                    body: [
-                      [
-                        [
-                          { text: 'Vår dato:', style: 'referanser' },
-                          { text: 'Deres dato:', style: 'referanser' },
-                          { text: 'Vår referanse:', style: 'referanser' },
-                          { text: 'Deres referanse:', style: 'referanser' },
-                          { text: 'Vår saksbehandler:', style: 'referanser' },
-                          { text: 'Unntatt offentlighet iht.:', style: 'referanser' }
-                        ],
-                        [
-                          { text: '11.07.2020', style: 'referanser' },
-                          { text: '10.07.2020', style: 'referanser' },
-                          { text: '20/10098', style: 'referanser' },
-                          { text: '20/98321', style: 'referanser' },
-                          { text: 'Ola Nordmann', style: 'referanser' },
-                          { text: 'Offl. § 13 jf. fvl. § 13 (1) nr. 1', style: 'referanser' }
-                        ]
-                      ]
-                    ]
-                  },
-                  layout: {
-                    defaultBorder: false,
-                    paddingRight: () => 0,
-                    paddingBottom: () => 0
-                  }
-                }
-              ]
+              { text: [address.name, address.street, address.city].filter(text => !!text).join('\n'), style: 'address', rowSpan: 2 },
+              { text: `${info.sector || ''}`, style: 'info', bold: true, colSpan: 2, marginTop: 30 },
+              ''
+            ],
+            [
+              '',
+              infoFields.map(info => ({ text: `${info.title}:`, style: 'info' })),
+              infoFields.map(info => ({ text: info.field, style: 'info' }))
             ]
           ]
         },
@@ -67,25 +58,52 @@ module.exports = data => {
           paddingLeft: () => 0,
           paddingRight: () => 0,
           paddingTop: () => 0,
-          paddingBottom: () => 0,
-          height: () => 500
+          paddingBottom: () => 0
         }
       },
-      data.content
+      content
     ],
-    styles: {
-      ...style,
-      'html-h1': style.header,
-      'html-h2': style.subHeader,
-      'html-h3': style.subHeader,
-      'html-h4': style.subHeader,
-      'html-h5': style.subHeader,
-      'html-h6': style.subHeader,
-      'html-p': style.body,
-      'html-strong': style.bold,
-      'html-italic': style.italic,
-      'html-a': style.url
-    }
+    footer: (page) => ({
+      table: {
+        widths: [93, 138, 97, 52, 70, 29],
+        body: [
+          [
+            [
+              { text: 'Postadresse:', style: 'footer', bold: true },
+              { text: `${footer['postal-address'] || 'Postboks 2844\n2702 Skien'}`, style: 'footer' }
+            ],
+            [
+              { text: 'Besøksadresse:', style: 'footer', bold: true },
+              { text: `${footer['visiting-address'] || 'Torggata 18, Skien\nSvend Foyns gate 9, Tønsberg'}`, style: 'footer' }
+            ],
+            [
+              { text: 'Sentralbord:', style: 'footer', bold: true },
+              { text: `${footer.phone || '35 91 70 00'}`, style: 'footer' },
+              { text: `${footer.email || 'post@vtfk.no'}`, style: 'footer' }
+            ],
+            [
+              { text: 'Org. nr.:', style: 'footer', bold: true },
+              { text: `${footer.orgnr || '821 227 062'}`, style: 'footer' }
+            ],
+            [
+              { text: `${footer.url || 'vtfk.no'}`, style: 'footer', bold: true, alignment: 'right', fontSize: 10 }
+            ],
+            [
+              { text: footer['page-numbers'] === false ? '' : page, style: 'pagenumber' }
+            ]
+          ]
+        ]
+      },
+      layout: {
+        defaultBorder: false,
+        paddingLeft: () => 0,
+        paddingRight: () => 0,
+        paddingTop: () => 0,
+        paddingBottom: () => 0
+      },
+      margin: [65, 5, 65, 0]
+    }),
+    ...style
   }
 
   return defintion
