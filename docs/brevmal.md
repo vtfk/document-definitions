@@ -5,6 +5,11 @@ Standard brevmal for Vestfold og Telemark fylkeskommune
 ## Frontmatter attributter
 
 ```yaml
+document: # Dokument-metadata, ref: https://pdfmake.github.io/docs/0.1/document-definition-object/document-medatadata/
+  title: Dokumenttittel
+  author: Forfatter av dokumentet
+  subject: Emne som forklarer dokument
+  keywords: nøkkel, ord, brev
 address:
   name: Navn Navnesen
   street: Adresseveien 58
