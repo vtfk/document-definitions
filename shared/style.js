@@ -28,6 +28,16 @@ const style = {
     fontFamily: 'Nunito Sans',
     fontSize: 10,
     alignment: 'right'
+  },
+  footer: {
+    font: 'Nunito Sans',
+    fontSize: 8
+  },
+  pagenumber: {
+    font: 'Nunito Sans',
+    fontSize: 9,
+    bold: true,
+    alignment: 'right'
   }
 }
 
