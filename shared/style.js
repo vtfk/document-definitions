@@ -1,39 +1,52 @@
 const style = {
-  header: {
+  heading: {
     fontFamily: 'Nunito',
     fontSize: 16,
     bold: true,
     margin: [0, 30, 0, 10]
   },
-  subHeader: {
+  subheading: {
     fontFamily: 'Nunito',
     fontSize: 16,
     bold: true,
     margin: [0, 15, 0, 10]
   },
   body: {
-    fontFamily: 'Nunito Sans'
-  },
-  bold: {
-    bold: true
-  },
-  italic: {
-
+    fontFamily: 'Nunito Sans',
+    fontSize: 11.5,
+    margin: [0, 5, 0, 10]
   },
   url: {
     bold: true,
     textColor: '#005260'
   },
-  mottaker: {
+  address: {
     fontFamily: 'Nunito Sans',
     fontSize: 11.5
   },
-  referanser: {
+  info: {
     fontFamily: 'Nunito Sans',
     fontSize: 10,
-    alignment: 'right',
-    padding: [0]
+    alignment: 'right'
   }
 }
 
-module.exports = style
+module.exports = {
+  styles: {
+    ...style
+  },
+  defaultStyles: {
+    font: 'Nunito Sans',
+    fontSize: 11.5
+  },
+  htmlStyles: {
+    p: style.body,
+    a: style.url,
+    h1: style.heading,
+    h2: style.subheading,
+    h3: style.subheading,
+    h4: style.subheading,
+    h5: style.subheading,
+    h6: style.subheading
+  }
+}
