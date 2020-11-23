@@ -28,7 +28,7 @@ module.exports = ({ metadata, content }) => {
   const defintion = {
     pageSize: 'A4',
     pageOrientation: 'portrait',
-    pageMargins: [65, 120, 65, 0],
+    pageMargins: [65, 120, 65, 70],
     info: {
       title: document.title,
       author: document.author,
