@@ -23,7 +23,7 @@ const pdfDefinition = dd(data)
 
 ## Definitions
 
-- brevmal
+- [brevmal](./docs/brevmal.md)
 
 ## License
 
