@@ -20,11 +20,11 @@ module.exports = ({ metadata, content }) => {
   }
 
   appendInfo(info['our-date'] || new Date(), 'Vår dato', formatDate)
-  appendInfo(info['your-date'], 'Dykkar dato', formatDate)
+  appendInfo(info['your-date'], 'Deres dato', formatDate)
   appendInfo(info['our-reference'], 'Vår referanse')
-  appendInfo(info['your-reference'], 'Dykkar referanse')
-  appendInfo(info['our-caseworker'], 'Vår saksbehandlar')
-  appendInfo(info.paragraph, 'Unnateke offentlegheit')
+  appendInfo(info['your-reference'], 'Deres referanse')
+  appendInfo(info['our-caseworker'], 'Vår saksbehandler')
+  appendInfo(info.paragraph, 'Unntatt offentlighet iht.')
 
   const defintion = {
     pageSize: 'A4',

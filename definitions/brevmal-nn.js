@@ -59,7 +59,7 @@ module.exports = ({ metadata, content }) => {
           paddingLeft: () => 0,
           paddingRight: () => 0,
           paddingTop: () => 0,
-          paddingBottom: () => 10
+          paddingBottom: () => 5
         }
       },
       content
