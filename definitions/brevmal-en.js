@@ -1,6 +1,7 @@
 const formatDate = require('../lib/format-date')
 const style = require('../shared/style')
 const header = require('../shared/header')
+const helpers = require('../shared/helpers')
 
 module.exports = ({ metadata, content }) => {
   const address = metadata.address || {}
@@ -103,7 +104,8 @@ module.exports = ({ metadata, content }) => {
       },
       margin: [65, 5, 65, 0]
     }),
-    ...style
+    ...style,
+    ...helpers
   }
 
   return defintion
