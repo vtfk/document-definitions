@@ -37,7 +37,7 @@ module.exports = ({ metadata, content }) => {
       subject: document.subject,
       keywords: document.keywords
     },
-    watermark: watermark(content, 'Forhåndsvisning'),
+    watermark: watermark(metadata, 'Forhåndsvisning'),
     header,
     content: [
       {
