@@ -2,6 +2,7 @@ const formatDate = require('../lib/format-date')
 const style = require('../shared/style')
 const header = require('../shared/header')
 const helpers = require('../shared/helpers')
+const watermark = require('../shared/watermark')
 
 module.exports = ({ metadata, content }) => {
   const address = metadata.address || {}
@@ -36,6 +37,7 @@ module.exports = ({ metadata, content }) => {
       subject: document.subject,
       keywords: document.keywords
     },
+    watermark: watermark(metadata, 'Førehandsvisning'),
     header,
     content: [
       {
