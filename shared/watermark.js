@@ -4,7 +4,6 @@
  * @param {String} defaultText Default watermark text
  */
 module.exports = (content, defaultText = '') => {
-  console.log(content)
   if (!content || !content.watermark) return undefined
 
   return {
