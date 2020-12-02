@@ -36,6 +36,7 @@
   "files": [
     "shared/",
     "definitions/",
+    "lib/",
     "index.js"
   ]
 }
