@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "standard && ava",
+    "test:coverage": "nyc ava",
     "standard:fix": "standard --fix",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i"
   },
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "ava": "3.13.0",
+    "nyc": "15.1.0",
     "standard": "16.0.3"
   },
   "files": [
