@@ -1,7 +1,7 @@
 {
   "name": "@vtfk/document-definitions",
   "version": "1.0.0",
-  "description": "Node module for document-definitions",
+  "description": "Node module for pdfmake document-definitions",
   "main": "index.js",
   "publishConfig": {
     "access": "public"
