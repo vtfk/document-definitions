@@ -12,7 +12,7 @@ module.exports = (content, defaultText = '') => {
     color: content.watermark.color || '#EB8380', // Mørk nype
     opacity: content.watermark.opacity || 0.3,
     bold: content.watermark.bold || false,
-    italic: content.watermark.italics || false,
+    italics: content.watermark.italic || false,
     fontSize: content.watermark.fontSize || undefined,
     font: content.watermark.font || 'Nunito'
   }
