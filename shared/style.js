@@ -38,6 +38,15 @@ const style = {
     fontSize: 9,
     bold: true,
     alignment: 'right'
+  },
+  noteTitle: {
+    fontFamily: 'Nunito Sans',
+    fontSize: 18,
+    bold: true
+  },
+  noteRecipient: {
+    fontFamily: 'Nunito Sans',
+    fontSize: 10
   }
 }
 

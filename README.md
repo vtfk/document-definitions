@@ -27,6 +27,7 @@ const pdfDefinition = dd(data)
 ## Definitions
 
 - [brevmal](./docs/brevmal.md)
+- [notatmal](./docs/notatmal.md)
 
 ## License
 
