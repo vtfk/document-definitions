@@ -43,7 +43,7 @@ module.exports = ({ metadata, content }) => {
           widths: ['50%', '*'],
           body: [
             [
-              { text: 'Notat', style: 'noteTitle' },
+              { text: 'Note', style: 'noteTitle' },
               { text: `${info.sector || ''}`, style: 'info', bold: true, marginTop: 10 }
             ],
             [
