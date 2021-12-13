@@ -22,7 +22,7 @@ module.exports = ({ metadata, content }) => {
   appendInfo(info['your-date'], 'Deres dato', formatDate)
   appendInfo(info['our-reference'], 'Vår referanse')
   appendInfo(info['your-reference'], 'Deres referanse')
-  appendInfo(info['our-caseworker'], 'Oppfølgingsansvarlig')
+  appendInfo(info['our-caseworker'], 'Saksansvarlig')
   appendInfo(info.paragraph, 'Unntatt offentlighet')
 
   const defintion = {
